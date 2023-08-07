@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4183563518553320}
   - component: {fileID: 33800356444059134}
   - component: {fileID: 23721910706696794}
+  - component: {fileID: 8887423936763929432}
   m_Layer: 0
   m_Name: door_canopy_1
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8887423936763929432
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072713545842060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 27486d93a4d967246bd1022ea15ad7a0, type: 3}

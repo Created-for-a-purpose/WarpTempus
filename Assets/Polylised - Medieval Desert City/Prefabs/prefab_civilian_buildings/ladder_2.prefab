@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4810496001986220}
   - component: {fileID: 33847964029574828}
   - component: {fileID: 23586497623636776}
+  - component: {fileID: 8256690710115257639}
   m_Layer: 0
   m_Name: ladder_2
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8256690710115257639
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890804429099966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c9d14453c732fde4097ab4bd7530557a, type: 3}

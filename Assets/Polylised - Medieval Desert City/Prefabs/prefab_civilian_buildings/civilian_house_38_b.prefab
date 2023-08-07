@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4046337248144146}
   - component: {fileID: 33975940784521376}
   - component: {fileID: 23661893422432592}
+  - component: {fileID: 7932093809454981879}
   m_Layer: 0
   m_Name: civilian_house_38_b
   m_TagString: Untagged
@@ -85,3 +86,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7932093809454981879
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446373825254710}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 74872c232b82cb44da875b1753b4baba, type: 3}

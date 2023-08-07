@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4214925335424870}
   - component: {fileID: 33359253739584808}
   - component: {fileID: 23421097856458718}
+  - component: {fileID: -5488834228784679442}
   m_Layer: 0
   m_Name: fortification_gate
   m_TagString: Untagged
@@ -86,3 +87,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-5488834228784679442
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976321354576030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0648d4361d8a07d44921f1db2e15b9e0, type: 3}

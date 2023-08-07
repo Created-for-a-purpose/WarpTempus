@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4450935518965028}
   - component: {fileID: 33897616119687746}
   - component: {fileID: 23796091697847122}
+  - component: {fileID: 6994923772432968401}
   m_Layer: 0
   m_Name: standard_rooftop_1
   m_TagString: Untagged
@@ -85,3 +86,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6994923772432968401
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046856042166630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 63fe76b4a0f72434e809ec869157b379, type: 3}

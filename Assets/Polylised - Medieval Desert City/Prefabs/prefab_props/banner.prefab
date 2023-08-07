@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4731890663447788}
   - component: {fileID: 33196615914325052}
   - component: {fileID: 23531902680722158}
+  - component: {fileID: 5196781079353944900}
   m_Layer: 0
   m_Name: banner
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5196781079353944900
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905082359077414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 653a77d8711adf3429a390ba25ee55c8, type: 3}

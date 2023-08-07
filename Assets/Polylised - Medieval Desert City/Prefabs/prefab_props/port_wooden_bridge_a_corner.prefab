@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4274309702161388}
   - component: {fileID: 33417919913879334}
   - component: {fileID: 23153124778296814}
+  - component: {fileID: 8504181567256243596}
   m_Layer: 0
   m_Name: port_wooden_bridge_a_corner
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8504181567256243596
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697430801981060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: a8793ae45efd71545b54e3c7612887bf, type: 3}

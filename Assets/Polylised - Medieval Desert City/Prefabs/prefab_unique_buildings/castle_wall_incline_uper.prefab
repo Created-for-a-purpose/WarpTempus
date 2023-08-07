@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4763690955768434}
   - component: {fileID: 33038825707194524}
   - component: {fileID: 23271489887156704}
+  - component: {fileID: -1263339962867805070}
   m_Layer: 0
   m_Name: castle_wall_incline_uper
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-1263339962867805070
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419772997638888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 28952de306378314aaa188484ad62067, type: 3}

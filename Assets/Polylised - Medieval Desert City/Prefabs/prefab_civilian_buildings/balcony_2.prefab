@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4349457144028458}
   - component: {fileID: 33402224970248402}
   - component: {fileID: 23375163905248338}
+  - component: {fileID: 1039678900517666253}
   m_Layer: 0
   m_Name: balcony_2
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1039678900517666253
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194959033583686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 342cdcf438ec40640a2560974332a8f6, type: 3}

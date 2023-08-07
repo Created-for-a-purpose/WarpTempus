@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4376354218036918}
   - component: {fileID: 33224205011578002}
   - component: {fileID: 23115399808854356}
+  - component: {fileID: -7734043867259063881}
   m_Layer: 0
   m_Name: civilian_bridge_4_b
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-7734043867259063881
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001841379621248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: fee21040b65a15145876e84478aa0044, type: 3}

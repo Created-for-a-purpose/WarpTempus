@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4513438880986192}
   - component: {fileID: 33874595028422138}
   - component: {fileID: 23110317094434396}
+  - component: {fileID: -8334291816288635636}
   m_Layer: 0
   m_Name: church_c
   m_TagString: Untagged
@@ -89,3 +90,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-8334291816288635636
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911461125620986}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 9906240cad1ee95419939f4697357d0d, type: 3}

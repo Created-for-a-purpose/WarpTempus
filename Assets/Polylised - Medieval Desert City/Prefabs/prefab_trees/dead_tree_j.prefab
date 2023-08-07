@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4269849689486830}
   - component: {fileID: 33097150450062798}
   - component: {fileID: 23528491015070802}
+  - component: {fileID: -7235554575354888964}
   m_Layer: 0
   m_Name: dead_tree_j
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-7235554575354888964
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141541113816982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 9d6a878f1cecdd946afc3f03565e423f, type: 3}

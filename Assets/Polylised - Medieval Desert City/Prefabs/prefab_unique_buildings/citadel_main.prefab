@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4478822117492342}
   - component: {fileID: 33979451003345056}
   - component: {fileID: 23580122391699814}
+  - component: {fileID: 7777617465027579944}
   m_Layer: 0
   m_Name: citadel_main
   m_TagString: Untagged
@@ -87,3 +88,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7777617465027579944
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044818417282170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 24f209a0059ca684a8147ab8b4f991b6, type: 3}

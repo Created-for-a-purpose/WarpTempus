@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4016960225343446}
   - component: {fileID: 33572980360830266}
   - component: {fileID: 23664736192061976}
+  - component: {fileID: 2053784830145163793}
   m_Layer: 0
   m_Name: civilian_house_ruin_d
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2053784830145163793
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039628868491950}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c111e49cd13eacf46ab666393220e890, type: 3}

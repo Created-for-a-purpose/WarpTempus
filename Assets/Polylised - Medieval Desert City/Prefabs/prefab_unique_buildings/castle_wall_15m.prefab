@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4501903411537258}
   - component: {fileID: 33789225918333010}
   - component: {fileID: 23574638431817962}
+  - component: {fileID: 9082985772835222553}
   m_Layer: 0
   m_Name: castle_wall_15m
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9082985772835222553
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017104576938822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: d80e2cb9a00dc204c9d38efaca9285c6, type: 3}

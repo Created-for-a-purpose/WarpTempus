@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4608479110816418}
   - component: {fileID: 33797121125745522}
   - component: {fileID: 23945452325930938}
+  - component: {fileID: -8174403736114471743}
   m_Layer: 0
   m_Name: fire_cage
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-8174403736114471743
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235266061306044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: d35b39c89d21c8445b096b8317580776, type: 3}

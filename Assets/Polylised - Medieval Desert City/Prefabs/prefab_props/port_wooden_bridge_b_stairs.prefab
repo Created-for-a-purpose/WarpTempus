@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4111949821274582}
   - component: {fileID: 33406854608089518}
   - component: {fileID: 23063281721799652}
+  - component: {fileID: 7424150729557144240}
   m_Layer: 0
   m_Name: port_wooden_bridge_b_stairs
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7424150729557144240
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122152505045698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 7b9d4603340e77c419de7ae56d9762a8, type: 3}

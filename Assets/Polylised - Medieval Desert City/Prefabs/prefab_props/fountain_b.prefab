@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4249239942434568}
   - component: {fileID: 33145545989964618}
   - component: {fileID: 23033597759146372}
+  - component: {fileID: 4349312433937635079}
   m_Layer: 0
   m_Name: fountain_b
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4349312433937635079
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129744469564264}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 80c58763d3b065b48924f320debf9ccc, type: 3}

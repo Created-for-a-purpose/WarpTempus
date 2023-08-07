@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4647394858403452}
   - component: {fileID: 33869771550040376}
   - component: {fileID: 23799965706448326}
+  - component: {fileID: 6038353759824117935}
   m_Layer: 0
   m_Name: citadel_bridge
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6038353759824117935
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155155821425916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3bb9d063a89b65548ad1df3aa1919330, type: 3}

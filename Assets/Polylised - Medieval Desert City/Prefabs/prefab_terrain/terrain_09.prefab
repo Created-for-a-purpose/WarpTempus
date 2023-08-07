@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4949540479443730}
   - component: {fileID: 33904094228029354}
   - component: {fileID: 23247366882245556}
+  - component: {fileID: 3752330263350122925}
   m_Layer: 0
   m_Name: terrain_09
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3752330263350122925
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291464670337302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f51036cd069c7a240aa2e0d26e085036, type: 3}

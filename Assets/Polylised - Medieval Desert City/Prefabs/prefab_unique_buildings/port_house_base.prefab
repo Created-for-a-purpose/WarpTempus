@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4797258541757498}
   - component: {fileID: 33604169381284726}
   - component: {fileID: 23667079587319324}
+  - component: {fileID: -4299915093712876125}
   m_Layer: 0
   m_Name: port_house_base
   m_TagString: Untagged
@@ -82,3 +83,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-4299915093712876125
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766415073580242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: a1653b28994f24c4e8b05de7a14bd606, type: 3}

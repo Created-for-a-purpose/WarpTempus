@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4442521509791770}
   - component: {fileID: 33622989911704146}
   - component: {fileID: 23178725380175930}
+  - component: {fileID: -8001097583559798523}
   m_Layer: 0
   m_Name: standard_wooden_roof_5
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-8001097583559798523
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764262666633428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 702fcaa53a8a1a74ca2f8e56f6b9f649, type: 3}

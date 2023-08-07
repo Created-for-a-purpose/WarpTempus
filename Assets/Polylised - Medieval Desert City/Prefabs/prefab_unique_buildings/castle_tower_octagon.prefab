@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4884781972206908}
   - component: {fileID: 33775472638756668}
   - component: {fileID: 23857534362595606}
+  - component: {fileID: 1782212243520323156}
   m_Layer: 0
   m_Name: castle_tower_octagon
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1782212243520323156
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933501008555322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: d7668ad5f64a7ed4683c61ca91f3a439, type: 3}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManagerL1 : MonoBehaviour
 {
     public GameObject Door1;
+    public GameObject PuzzleSpot1;
     private Animator doorAnimator;
     private bool isCursorLocked = true;
 

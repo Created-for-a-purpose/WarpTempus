@@ -1,21 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManagerL1 : MonoBehaviour
 {
     public GameObject Door1;
-    public GameObject PuzzleSpot1;
     private Animator doorAnimator;
     private bool isCursorLocked = true;
-
+    public static int balance;
+    public TMP_Text t_balance;
     private void Start()
     {
+        balance = 0;
         LockUnlockCursor();
         doorAnimator = Door1.GetComponent<Animator>();;
     }
+    public static void AddPoints()
+    {
+        balance += 50;
+    }
     private void Update()
     {
+        t_balance.text = "Score: " + balance.ToString();
         // Add any other input handling or game logic here
 
         // For example, you can press the "Escape" key to toggle cursor lock

@@ -595,7 +595,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
     1: STARTER_ASSETS_PACKAGES_CHECKED
-    13: STARTER_ASSETS_PACKAGES_CHECKED
+    13: STARTER_ASSETS_PACKAGES_CHECKED;INVECTOR_BASIC;INVECTOR_MELEE;INVECTOR_SHOOTER;INVECTOR_AI_TEMPLATE
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

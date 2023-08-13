@@ -5,7 +5,6 @@ public class ObjectsAppearDisappearOnCollision : MonoBehaviour
 {
     public GameObject[] objectsToAppear;    // Array of objects to appear
     public GameObject[] objectsToDisappear; // Array of objects to disappear
-
     private void Start()
     {
         // Ensure the objects are initially hidden

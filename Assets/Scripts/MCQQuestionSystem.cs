@@ -9,8 +9,9 @@ public class MCQQuestionSystem : MonoBehaviour
     public GameObject wrongAnswerPanel;
     public GameObject PuzzleSpot;
     public TMP_Dropdown dropdown;
-    public GameObject[] objectsToAppear;    
-    public int correctOptionIndex; // Index of the correct option in the dropdown
+    public GameObject[] objectsToAppear; 
+    public GameObject QuestionCanvas;   
+    public int correctOptionIndex;
 
     private void Start()
     {
@@ -18,8 +19,6 @@ public class MCQQuestionSystem : MonoBehaviour
         questionPanel.SetActive(true);
         correctAnswerPanel.SetActive(false);
         wrongAnswerPanel.SetActive(false);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
 
     public void SubmitAnswer()
@@ -40,13 +39,12 @@ public class MCQQuestionSystem : MonoBehaviour
         questionPanel.SetActive(false);
         correctAnswerPanel.SetActive(false);
         wrongAnswerPanel.SetActive(false);
-        PuzzleSpot.SetActive(false); 
+        PuzzleSpot.SetActive(false);
         foreach (GameObject obj in objectsToAppear)
             {
                 obj.SetActive(true);
             }
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        QuestionCanvas.SetActive(false);
     }
 
     private void ShowCorrectAnswerPanel()

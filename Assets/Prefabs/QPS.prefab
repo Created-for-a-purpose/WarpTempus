@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1991015226938917427
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8485243626542299757, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_Name
+      value: Q2PS
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -146.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073256733311703491, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+--- !u!1 &7953398534142031966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8485243626542299757, guid: 4e181071804456c44a02db2cac7b28e5, type: 3}
+  m_PrefabInstance: {fileID: 1991015226938917427}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &996125313
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953398534142031966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.05, y: 5.36, z: 3.89}
+  m_Center: {x: 0, y: 0.84, z: 0}
+--- !u!114 &996125311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953398534142031966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a846e71664d4e4eaf1e5e040c75758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToAppear:
+  - {fileID: 0}
+  objectsToDisappear:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &996125312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953398534142031966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a5fc50cb592fe4f95457eb6d66e520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Settings: {fileID: 0}
+  Prefabs:
+    RadarPrefab: {fileID: 114649513964931752, guid: 7df08e2a2fd0940469fa781e26554019, type: 3}
+    CompassBarPrefab: {fileID: 114875581833013858, guid: d04e4256c86dfc4439da3d1b4407458e, type: 3}
+    IndicatorPrefab: {fileID: 114724236924444632, guid: b97d8841013a7a643bb2c5c9fe8da06e, type: 3}
+    MinimapPrefab: {fileID: 114416010850775958, guid: a8f2acb57900dfa4fa38df814b1b9a5c, type: 3}
+  hideInRadar: 0
+  ignoreRadarRadius: 0
+  ignoreRadarScaling: 0
+  ignoreRadarFading: 0
+  rotateWithGameObject: 1
+  useRadarHeightSystem: 1
+  hideInCompassBar: 0
+  ignoreCompassBarRadius: 0
+  useCompassBarDistanceText: 1
+  compassBarDistanceTextFormat: '{0}m'
+  showIndicator: 1
+  showOffscreenIndicator: 1
+  ignoreIndicatorRadius: 1
+  ignoreIndicatorHideDistance: 0
+  ignoreIndicatorScaling: 0
+  ignoreIndicatorFading: 0
+  useIndicatorDistanceText: 1
+  showOffscreenIndicatorDistance: 0
+  indicatorOnscreenDistanceTextFormat: '{0}m'
+  indicatorOffscreenDistanceTextFormat: '{0}'
+  hideInMinimap: 0
+  ignoreMinimapRadius: 0
+  ignoreMinimapScaling: 0
+  ignoreMinimapFading: 0
+  rotateWithGameObjectMM: 1
+  useMinimapHeightSystem: 1
+  OnElementReady:
+    m_PersistentCalls:
+      m_Calls: []
+  OnElementUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAppear:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDisappear:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnterRadius:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLeaveRadius:
+    m_PersistentCalls:
+      m_Calls: []
+  IsActive: 1
+  Radar: {fileID: 0}
+  CompassBar: {fileID: 0}
+  Indicator: {fileID: 0}
+  Minimap: {fileID: 0}
+  IsInRadarRadius: 0
+  IsInCompassBarRadius: 0
+  IsInIndicatorRadius: 0
+  IsInMinimapRadius: 0

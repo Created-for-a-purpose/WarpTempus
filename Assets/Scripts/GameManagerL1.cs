@@ -9,7 +9,13 @@ public class GameManagerL1 : MonoBehaviour
     private Animator doorAnimator;
     private bool isCursorLocked = true;
     public static int balance;
+    public static int puzzlesolved = 0;
+    public TMP_Text puzzlescore;
     public TMP_Text t_balance;
+    public GameObject Teleporter;
+    public GameObject PuzzleScorePanel;
+    public GameObject TimelineTeleporter;
+    bool TimelineComplete = false;
     private void Start()
     {
         balance = 0;
@@ -22,7 +28,8 @@ public class GameManagerL1 : MonoBehaviour
     }
     private void Update()
     {
-        t_balance.text = "Score: " + balance.ToString();
+        t_balance.text = "Token Balance: " + balance.ToString();
+        puzzlescore.text = "Puzzle Solved: "+puzzlesolved.ToString();
         // Add any other input handling or game logic here
 
         // For example, you can press the "Escape" key to toggle cursor lock
@@ -30,6 +37,10 @@ public class GameManagerL1 : MonoBehaviour
         {
             isCursorLocked = !isCursorLocked;
             LockUnlockCursor();
+        }
+        if(puzzlesolved == 2 && TimelineComplete==false)
+        {
+            PlayTeleporterTimeline();
         }
     }
     public void LockUnlockCursor()
@@ -54,5 +65,21 @@ public class GameManagerL1 : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         gb.SetActive(false);
+    }
+    private IEnumerator DelayTime(float t)
+    {
+        yield return new WaitForSeconds(t);
+        TimelineTeleporter.SetActive(false);
+    }
+    public void PlayTeleporterTimeline()
+    {
+        PuzzleScorePanel.SetActive(false);
+        Debug.Log("PlayTeleporterTimeline");
+        TimelineTeleporter.SetActive(true);
+        StartCoroutine(DelayTime(5));
+        
+        Teleporter.SetActive(true);
+        TimelineComplete = true;
+        PuzzleScorePanel.SetActive(false);
     }
 }

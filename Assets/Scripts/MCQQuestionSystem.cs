@@ -8,10 +8,12 @@ public class MCQQuestionSystem : MonoBehaviour
     public GameObject correctAnswerPanel;
     public GameObject wrongAnswerPanel;
     public GameObject PuzzleSpot;
+    public GameObject publicscorepanel;
     public TMP_Dropdown dropdown;
     public GameObject[] objectsToAppear; 
     public GameObject QuestionCanvas;   
     public int correctOptionIndex;
+    bool isCorrect = false;
 
     private void Start()
     {
@@ -45,11 +47,17 @@ public class MCQQuestionSystem : MonoBehaviour
                 obj.SetActive(true);
             }
         QuestionCanvas.SetActive(false);
+        publicscorepanel.SetActive(true);
+        if(isCorrect)
+        {
+            GameManagerL1.puzzlesolved++;
+        }
     }
 
     private void ShowCorrectAnswerPanel()
     {
         GameManagerL1.AddPoints();
+        isCorrect = true;
         questionPanel.SetActive(false);
         correctAnswerPanel.SetActive(true);
         wrongAnswerPanel.SetActive(false);

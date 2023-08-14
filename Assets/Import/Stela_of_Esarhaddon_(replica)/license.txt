@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stela of Esarhaddon (replica)
+* source:	https://sketchfab.com/3d-models/stela-of-esarhaddon-replica-e886b00728b840439a31b4829406becd
+* author:	pmanuelian (https://sketchfab.com/pmanuelian)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stela of Esarhaddon (replica)" (https://sketchfab.com/3d-models/stela-of-esarhaddon-replica-e886b00728b840439a31b4829406becd) by pmanuelian (https://sketchfab.com/pmanuelian) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

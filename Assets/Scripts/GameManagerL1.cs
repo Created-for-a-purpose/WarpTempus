@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using MetaMask.Unity;
 
 public class GameManagerL1 : MonoBehaviour
 {
@@ -12,15 +13,17 @@ public class GameManagerL1 : MonoBehaviour
     public static int puzzlesolved = 0;
     public TMP_Text puzzlescore;
     public TMP_Text t_balance;
+    public TMP_Text publicKey;
     public GameObject Teleporter;
     public GameObject PuzzleScorePanel;
     public GameObject TimelineTeleporter;
+    public GameObject metamaskInfo;
     bool TimelineComplete = false;
     private void Start()
     {
         balance = 0;
         LockUnlockCursor();
-        doorAnimator = Door1.GetComponent<Animator>();;
+        doorAnimator = Door1.GetComponent<Animator>();
     }
     public static void AddPoints()
     {
@@ -58,6 +61,13 @@ public class GameManagerL1 : MonoBehaviour
     }
     public void OpenDoor()
     {
+        var wallet = MetaMaskUnity.Instance.Wallet;
+        wallet.Connect();
+    }
+    public void openDoor(){
+        metamaskInfo.SetActive(true);
+        var pk = MetaMaskUnity.Instance.Wallet.SelectedAddress;
+        publicKey.text = pk.Substring(2, 4) + "..." + pk.Substring(pk.Length - 4);
         doorAnimator.SetBool("OpenDoor", true);
         StartCoroutine(DeactivateAfterTimeCoroutine(2, Door1));
     }

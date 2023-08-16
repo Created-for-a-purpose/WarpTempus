@@ -65,11 +65,16 @@ public class GameManagerL1 : MonoBehaviour
         wallet.Connect();
     }
     public void openDoor(){
-        metamaskInfo.SetActive(true);
-        var pk = MetaMaskUnity.Instance.Wallet.SelectedAddress;
-        publicKey.text = pk.Substring(2, 4) + "..." + pk.Substring(pk.Length - 4);
         doorAnimator.SetBool("OpenDoor", true);
         StartCoroutine(DeactivateAfterTimeCoroutine(2, Door1));
+    }
+    public void updateInfo(){
+        metamaskInfo.SetActive(true);
+        var pk = MetaMaskUnity.Instance.Wallet.SelectedAddress;
+        publicKey.text = pk.Substring(0, 6) + "..." + pk.Substring(pk.Length - 4, 4);
+    }
+    public void OnDisconnect(){
+        publicKey.text = "Not Connected";
     }
     private IEnumerator DeactivateAfterTimeCoroutine(float t,GameObject gb)
     {

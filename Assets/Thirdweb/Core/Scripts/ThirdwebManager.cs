@@ -197,6 +197,7 @@ public class ThirdwebManager : MonoBehaviour
                     domainVersion = string.IsNullOrEmpty(this.forwaderVersionOverride) ? "0.0.1" : this.forwaderVersionOverride
                 }
             };
+            Debug.Log("Gasless options set up successfully!");
         }
 
         // Set up wallet data

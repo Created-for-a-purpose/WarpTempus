@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using MetaMask.Unity;
+using Thirdweb;
 
 public class GameManagerL1 : MonoBehaviour
 {
@@ -59,10 +60,17 @@ public class GameManagerL1 : MonoBehaviour
             Cursor.visible = true;
         }
     }
-    public void OpenDoor()
+    public async void OpenDoor()
     {
-        var wallet = MetaMaskUnity.Instance.Wallet;
-        wallet.Connect();
+        // var wallet = MetaMaskUnity.Instance.Wallet;
+        // wallet.Connect();
+        Debug.Log("OpenDoor");
+        string address = await ThirdwebManager.Instance.SDK.wallet.Connect(new WalletConnection(
+            WalletProvider.Metamask,
+            591430
+        ));
+        Debug.Log("This is the address: "+address);
+        
     }
     public void openDoor(){
         doorAnimator.SetBool("OpenDoor", true);
@@ -72,6 +80,12 @@ public class GameManagerL1 : MonoBehaviour
         metamaskInfo.SetActive(true);
         var pk = MetaMaskUnity.Instance.Wallet.SelectedAddress;
         publicKey.text = pk.Substring(0, 6) + "..." + pk.Substring(pk.Length - 4, 4);
+    }
+    public async void logBalance(){
+         // 
+        var balance = await ThirdwebManager.Instance.SDK.wallet.GetBalance();
+        Debug.Log("Balance: " + balance);
+        //
     }
     public void OnDisconnect(){
         publicKey.text = "Not Connected";

@@ -1,143 +1,149 @@
-// using System;
-// using System.Collections;
-// using System.Collections.Generic;
-// using System.Threading.Tasks;
-// using MetaMask.Models;
-// using MetaMask.Transports;
-// using MetaMask.Transports.Unity;
-// using MetaMask.Unity;
-// using UnityEngine;
-// using UnityEngine.UI;
-// using ZXing;
-// using ZXing.QrCode;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using MetaMask.Models;
+using MetaMask.Transports;
+using MetaMask.Transports.Unity;
+using MetaMask.Unity;
+using UnityEngine;
+using UnityEngine.UI;
+using ZXing;
+using ZXing.QrCode;
 
-// namespace Thirdweb.Wallets
-// {
-//     public class MetamaskUI : MonoBehaviour, IMetaMaskUnityTransportListener
-//     {
-//         public GameObject MetamaskCanvas;
-//         public Image QRCodeImage;
-//         public Button DeepLinkButton;
+namespace Thirdweb.Wallets
+{
+    public class MetamaskUI : MonoBehaviour, IMetaMaskUnityTransportListener
+    {
+        public GameObject MetamaskCanvas;
+        public Image QRCodeImage;
+        public Button DeepLinkButton;
 
-//         public static MetamaskUI Instance;
+        public static MetamaskUI Instance;
 
-//         private bool _connected;
-//         private bool _authorized;
-//         private Exception _exception;
+        private bool _connected;
+        private bool _authorized;
+        private Exception _exception;
 
-//         private void Awake()
-//         {
-//             if (Instance == null)
-//             {
-//                 Instance = this;
-//                 DontDestroyOnLoad(this.gameObject);
-//             }
-//             else
-//             {
-//                 Destroy(this.gameObject);
-//                 return;
-//             }
-//         }
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(this.gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+        }
 
-//         public async Task<string> Connect()
-//         {
-//             _connected = false;
-//             _authorized = false;
-//             _exception = null;
+        public async Task<string> Connect()
+        {
+            _connected = false;
+            _authorized = false;
+            _exception = null;
 
-//             MetamaskCanvas.SetActive(true);
+            MetamaskCanvas.SetActive(true);
 
-//             MetaMaskUnity.Instance.Wallet.WalletConnected += OnWalletConnected;
-//             MetaMaskUnity.Instance.Wallet.WalletAuthorized += OnWalletAuthorized;
+            // MetaMaskUnity.Instance.Wallet.WalletConnected += OnWalletConnected;
+            // MetaMaskUnity.Instance.Wallet.WalletAuthorized += OnWalletAuthorized;
+            MetaMaskUnity.Instance.Events.WalletReady += OnWalletConnected;
+            MetaMaskUnity.Instance.Events.WalletAuthorized += OnWalletAuthorized;
+            Debug.Log("Initiating connection");
+            MetaMaskUnity.Instance.Connect();
+            
+            await new WaitUntil(() => (_connected && _authorized) || _exception != null);
+            Debug.Log("Connection complete, unsubscribing...");
+            // MetaMaskUnity.Instance.Wallet.WalletConnected -= OnWalletConnected;
+            // MetaMaskUnity.Instance.Wallet.WalletAuthorized -= OnWalletAuthorized;
 
-//             MetaMaskUnity.Instance.Connect();
+            MetamaskCanvas.SetActive(false);
 
-//             await new WaitUntil(() => (_connected && _authorized) || _exception != null);
+            if (_exception != null)
+            {
+                MetaMaskUnity.Instance.Disconnect();
+                throw _exception;
+            }
 
-//             MetaMaskUnity.Instance.Wallet.WalletConnected -= OnWalletConnected;
-//             MetaMaskUnity.Instance.Wallet.WalletAuthorized -= OnWalletAuthorized;
+            return MetaMaskUnity.Instance.Wallet.SelectedAddress;
+        }
 
-//             MetamaskCanvas.SetActive(false);
+        public void Cancel()
+        {
+            _exception = new UnityException("User cancelled");
+        }
 
-//             if (_exception != null)
-//             {
-//                 MetaMaskUnity.Instance.Disconnect();
-//                 throw _exception;
-//             }
+        public void ShowQR(string url)
+        {
+            Debug.Log($"URI: {url}");
 
-//             return MetaMaskUnity.Instance.Wallet.SelectedAddress;
-//         }
+            var qrCodeAsTexture2D = GenerateQRTexture(url);
+            QRCodeImage.sprite = Sprite.Create(qrCodeAsTexture2D, new Rect(0, 0, qrCodeAsTexture2D.width, qrCodeAsTexture2D.height), new Vector2(0.5f, 0.5f));
+            DeepLinkButton.onClick.RemoveAllListeners();
+            DeepLinkButton.onClick.AddListener(() => Application.OpenURL(url));
+            QRCodeImage.mainTexture.filterMode = FilterMode.Point;
+        }
 
-//         public void Cancel()
-//         {
-//             _exception = new UnityException("User cancelled");
-//         }
+        public void OnWalletConnected(object sender, EventArgs e)
+        // public void OnWalletConnected()
+        {
+            Debug.Log("Thirdweb connected");
+            _connected = true;
+        }
 
-//         public void ShowQR(string url)
-//         {
-//             Debug.Log($"URI: {url}");
+        public void OnWalletAuthorized(object sender, EventArgs e)
+        // public void OnWalletAuthorized()
+        {
+            Debug.Log("Thirdweb authorized");
+            _authorized = true;
+        }
 
-//             var qrCodeAsTexture2D = GenerateQRTexture(url);
-//             QRCodeImage.sprite = Sprite.Create(qrCodeAsTexture2D, new Rect(0, 0, qrCodeAsTexture2D.width, qrCodeAsTexture2D.height), new Vector2(0.5f, 0.5f));
-//             DeepLinkButton.onClick.RemoveAllListeners();
-//             DeepLinkButton.onClick.AddListener(() => Application.OpenURL(url));
-//             QRCodeImage.mainTexture.filterMode = FilterMode.Point;
-//         }
+        private static Texture2D GenerateQRTexture(string text)
+        {
+            var encoded = new Texture2D(256, 256);
+            var color32 = EncodeToQR(text, encoded.width, encoded.height);
+            encoded.SetPixels32(color32);
+            encoded.Apply();
+            return encoded;
+        }
 
-//         private void OnWalletConnected(object sender, EventArgs e)
-//         {
-//             _connected = true;
-//         }
+        private static Color32[] EncodeToQR(string textForEncoding, int width, int height)
+        {
+            var writer = new BarcodeWriter
+            {
+                Format = BarcodeFormat.QR_CODE,
+                Options = new QrCodeEncodingOptions { Height = height, Width = width }
+            };
+            return writer.Write(textForEncoding);
+        }
 
-//         private void OnWalletAuthorized(object sender, EventArgs e)
-//         {
-//             _authorized = true;
-//         }
+        public void OnMetaMaskConnectRequest(string url, string _id)
+        {
+            ShowQR(url);
+        }
 
-//         private static Texture2D GenerateQRTexture(string text)
-//         {
-//             var encoded = new Texture2D(256, 256);
-//             var color32 = EncodeToQR(text, encoded.width, encoded.height);
-//             encoded.SetPixels32(color32);
-//             encoded.Apply();
-//             return encoded;
-//         }
+        public void OnMetaMaskRequest(string id, MetaMaskEthereumRequest request)
+        {
+            return;
+        }
 
-//         private static Color32[] EncodeToQR(string textForEncoding, int width, int height)
-//         {
-//             var writer = new BarcodeWriter
-//             {
-//                 Format = BarcodeFormat.QR_CODE,
-//                 Options = new QrCodeEncodingOptions { Height = height, Width = width }
-//             };
-//             return writer.Write(textForEncoding);
-//         }
+        public void OnMetaMaskFailure(Exception error)
+        {
+            _exception = error;
+        }
 
-//         public void OnMetaMaskConnectRequest(string url, string _id)
-//         {
-//             ShowQR(url);
-//         }
+        public void OnMetaMaskSuccess()
+        {
+            return;
+        }
+        public void OnMetaMaskOTP(int otp){
+            return;
+        }
 
-//         public void OnMetaMaskRequest(string id, MetaMaskEthereumRequest request)
-//         {
-//             return;
-//         }
-
-//         public void OnMetaMaskFailure(Exception error)
-//         {
-//             _exception = error;
-//         }
-
-//         public void OnMetaMaskSuccess()
-//         {
-//             return;
-//         }
-//         public void OnMetaMaskOTP(int otp){
-//             return;
-//         }
-
-//         public void OnMetaMaskDisconnected(){
-//             return;
-//         }
-//     }
-// }
+        public void OnMetaMaskDisconnected(){
+            return;
+        }
+    }
+}

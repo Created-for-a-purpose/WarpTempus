@@ -74,7 +74,7 @@ namespace Thirdweb
                     ActiveWallet = new ThirdwebPaper(Options.wallet?.paperClientId);
                     break;
                 case WalletProvider.Metamask:
-                    // ActiveWallet = new ThirdwebMetamask();
+                    ActiveWallet = new ThirdwebMetamask();
                     break;
                 case WalletProvider.SmartWallet:
                     await Connect(new WalletConnection(walletConnection.personalWallet, walletConnection.chainId, walletConnection.password, walletConnection.email));

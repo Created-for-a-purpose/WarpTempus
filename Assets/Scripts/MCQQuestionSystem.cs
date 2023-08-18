@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Thirdweb;
+using MetaMask.Unity;
+using MetaMask.Models;
 
 public class MCQQuestionSystem : MonoBehaviour
 {
@@ -46,6 +48,24 @@ public class MCQQuestionSystem : MonoBehaviour
         var add = await sdk.wallet.GetAddress();
         await contract.Write("claim", add, 5);
             ShowCorrectAnswerPanel();
+            addTokenToMetamask();
+    }
+    private async void addTokenToMetamask(){
+        var wallet = MetaMaskUnity.Instance.Wallet;
+        
+        var request = new MetaMaskEthereumRequest{
+                Method = "wallet_watchAsset",
+                Parameters = new MetaMaskParameters{ 
+                        Type = "ERC20",
+                        Options = new MetaMaskOptions{
+                            Address = address,
+                            Symbol = "TGM",
+                            Decimals = 18,
+                            Image = "https://cdn.dribbble.com/users/623914/screenshots/17252125/media/8b988bf690f135d8ca18c3d65dfa59b2.jpg?resize=400x300&vertical=center"
+                        }
+                    }
+                };
+        await wallet.Request(request);
     }
     public void Next()
     {

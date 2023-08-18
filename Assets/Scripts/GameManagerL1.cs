@@ -28,11 +28,11 @@ public class GameManagerL1 : MonoBehaviour
     }
     public static void AddPoints()
     {
-        balance += 50;
+        balance += 5;
     }
     private void Update()
     {
-        t_balance.text = "Token Balance: " + balance.ToString();
+        t_balance.text = "TGM: " + balance.ToString();
         puzzlescore.text = "Puzzle Solved: "+puzzlesolved.ToString();
         // Add any other input handling or game logic here
 

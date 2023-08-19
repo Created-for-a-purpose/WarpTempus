@@ -15,6 +15,7 @@ namespace Thirdweb
     public static class TransactionManager
     {
         private static bool warned;
+        private static int nonce = 3;
 
         public static async Task<TWResult> ThirdwebRead<TWFunction, TWResult>(string contractAddress, TWFunction functionMessage)
             where TWFunction : FunctionMessage, new()
@@ -60,8 +61,9 @@ namespace Thirdweb
                 try
                 {
                     var gasEstimator = new Web3(ThirdwebManager.Instance.SDK.session.RPC).Eth.GetContractTransactionHandler<TWFunction>();
-                    var gas = await gasEstimator.EstimateGasAsync(contractAddress, functionMessage);
-                    functionMessage.Gas = gas.Value < 100000 ? 100000 : gas.Value;
+                    // var gas = await gasEstimator.EstimateGasAsync(contractAddress, functionMessage);
+                    // functionMessage.Gas = gas.Value < 100000 ? 100000 : gas.Value;
+                    functionMessage.Gas = 100000;
                 }
                 catch (System.InvalidOperationException e)
                 {
@@ -97,12 +99,13 @@ namespace Thirdweb
                 string forwarderDomain = ThirdwebManager.Instance.SDK.session.Options.gasless.Value.openzeppelin?.domainName;
                 string forwarderVersion = ThirdwebManager.Instance.SDK.session.Options.gasless.Value.openzeppelin?.domainVersion;
 
-                functionMessage.Nonce = (
-                    await ThirdwebRead<MinimalForwarder.GetNonceFunction, MinimalForwarder.GetNonceOutputDTO>(
-                        forwarderAddress,
-                        new MinimalForwarder.GetNonceFunction() { From = functionMessage.FromAddress }
-                    )
-                ).ReturnValue1;
+                // functionMessage.Nonce = (
+                //     await ThirdwebRead<MinimalForwarder.GetNonceFunction, MinimalForwarder.GetNonceOutputDTO>(
+                //         forwarderAddress,
+                //         new MinimalForwarder.GetNonceFunction() { From = functionMessage.FromAddress }
+                //     )
+                // ).ReturnValue1;
+                functionMessage.Nonce = nonce;
 
                 var request = new MinimalForwarder.ForwardRequest()
                 {
@@ -144,6 +147,7 @@ namespace Thirdweb
                 }
             }
             Debug.Log("txHash: " + txHash);
+            nonce++;
             var receiptPoller = new Web3(ThirdwebManager.Instance.SDK.session.RPC);
             return await receiptPoller.TransactionReceiptPolling.PollForReceiptAsync(txHash);
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using TokenERC20Contract = Thirdweb.Contracts.TokenERC20.ContractDefinition;
 using DropERC20Contract = Thirdweb.Contracts.DropERC20.ContractDefinition;
+using TGMContract = Thirdweb.Contracts.TGM.ContractDefinition;
 
 namespace Thirdweb
 {
@@ -297,6 +298,18 @@ namespace Thirdweb
             else
             {
                 return await TransactionManager.ThirdwebWrite(contractAddress, new TokenERC20Contract.MintToFunction() { To = address, Amount = BigInteger.Parse(amount.ToWei()) });
+            }
+        }
+        // Not created by third web
+        public async Task<TransactionResult> MintTGMTo(string address, string amount)
+        {
+            if (Utils.IsWebGLBuild())
+            {
+                return await Bridge.InvokeRoute<TransactionResult>(getRoute("mintTo"), Utils.ToJsonStringArray(address, amount));
+            }
+            else
+            {
+                return await TransactionManager.ThirdwebWrite(contractAddress, new TGMContract.MintToFunction() { To = address, Amount = BigInteger.Parse(amount.ToWei()) });
             }
         }
     }

@@ -35,7 +35,7 @@ public class MCQQuestionSystem : MonoBehaviour
 
         if (selectedOptionIndex == correctOptionIndex)
         {
-            initiateClaim();
+            ShowCorrectAnswerPanel();
         }
         else
         {
@@ -46,8 +46,14 @@ public class MCQQuestionSystem : MonoBehaviour
         var sdk = ThirdwebManager.Instance.SDK;
         Contract contract = sdk.GetContract(address, abi);
         var add = await sdk.wallet.GetAddress();
-        await contract.Write("claim", add, 5);
-            ShowCorrectAnswerPanel();
+        // await contract.Write("claim", add, 5);
+        try{
+        await contract.ERC20.MintTGMTo(add, "5");
+        }
+        catch(System.Exception e){
+            Debug.Log(e);
+        }
+            GameManagerL1.AddPoints();
             addTokenToMetamask();
     }
     private async void addTokenToMetamask(){
@@ -81,13 +87,13 @@ public class MCQQuestionSystem : MonoBehaviour
         publicscorepanel.SetActive(true);
         if(isCorrect)
         {
+            initiateClaim();
             GameManagerL1.puzzlesolved++;
         }
     }
 
     private void ShowCorrectAnswerPanel()
     {
-        GameManagerL1.AddPoints();
         isCorrect = true;
         questionPanel.SetActive(false);
         correctAnswerPanel.SetActive(true);

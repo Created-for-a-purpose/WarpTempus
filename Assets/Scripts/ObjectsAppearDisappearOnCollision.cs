@@ -33,4 +33,18 @@ public class ObjectsAppearDisappearOnCollision : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        // Check if the player exits the collision with the specific GameObject
+        if (other.CompareTag("Player"))
+        {
+            // Hide the objects to appear
+            foreach (GameObject obj in objectsToAppear)
+            {
+                obj.SetActive(false);
+            }
+
+            // Show the objects to disappear
+        }
+    }
 }

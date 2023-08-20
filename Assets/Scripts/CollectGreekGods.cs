@@ -1,5 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using System.Text;
 using TMPro;
 
@@ -25,15 +28,27 @@ public class CollectGreekGods : MonoBehaviour
     private int[] godCounts;
     public GameObject[] NFTs = new GameObject[12];
     public GameObject[] NFTCanvas;
+    public GameObject IsraelGod;
+    public GameObject StTimeline;
+    public TMP_InputField TokentoMint_IP;
+    int TokentoMint = 0;
+    public GameObject NFTNameText,TotalNFTText;
+    public TMP_Text Messege;
 
     public TMP_Text collectedGodsText; // Assign the Text component in the Inspector
     public static int NFTsCollected = 0;
     public TMP_Text NftsCollected_Text;
+    bool TimelineComplete = false;
     public static void NftAdded()
     {
         NFTsCollected++;
     }
     private void Update() {
+        if(NFTsCollected == 4 && TimelineComplete==false)
+        {
+            PlayTimeline();
+        }
+        TokentoMint = int.Parse(TokentoMint_IP.text);
         NftsCollected_Text.text = "NFTs Collected: " + NFTsCollected.ToString();
     }
     
@@ -41,6 +56,8 @@ public class CollectGreekGods : MonoBehaviour
     {
         godCounts = new int[godArray.Length];
         collectedGodsText.text  = "NFTs: ";
+        IsraelGod.SetActive(false);
+        StTimeline.SetActive(false);
         UpdateCollectedGodsText();
     }
 
@@ -77,5 +94,29 @@ public class CollectGreekGods : MonoBehaviour
         }
 
         collectedGodsText.text = builder.ToString();
+    }
+    public void PlayTimeline()
+    {
+        NFTNameText.SetActive(false);
+        TotalNFTText.SetActive(false);
+        StTimeline.SetActive(true);
+        StartCoroutine(DelayTime(5));
+        
+        IsraelGod.SetActive(true);
+        TimelineComplete = true;
+        TotalNFTText.SetActive(true);
+        NFTNameText.SetActive(true);
+    }
+    private IEnumerator DelayTime(float t)
+    {
+        yield return new WaitForSeconds(t);
+        StTimeline.SetActive(false);
+        Messege.text = "";
+    }
+    public void SendToken()//Called when you press SendToeken Button
+    {
+        Messege.text = "You have minted "+ TokentoMint.ToString();
+        StartCoroutine(DelayTime(2));
+        
     }
 }

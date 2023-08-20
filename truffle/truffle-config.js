@@ -20,7 +20,6 @@ module.exports = {
         apiKey: ETHERSCAN_API_KEY,
         explorerUrl: "https://goerli.lineascan.build/address",      
       },
-      network_id: "59140",
     },
 
   },
@@ -28,7 +27,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.10",  
+      version: "0.8.19",  
     }
   },
 

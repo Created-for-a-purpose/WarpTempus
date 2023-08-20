@@ -26,6 +26,9 @@ public class GameManagerL1 : MonoBehaviour
         LockUnlockCursor();
         doorAnimator = Door1.GetComponent<Animator>();
     }
+    private void Awake(){
+        DontDestroyOnLoad(this.gameObject);
+    }
     public static void AddPoints()
     {
         balance += 5;

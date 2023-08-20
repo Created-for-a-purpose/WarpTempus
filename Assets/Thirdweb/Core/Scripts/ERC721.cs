@@ -8,6 +8,7 @@ using TokenERC721Contract = Thirdweb.Contracts.TokenERC721.ContractDefinition;
 using DropERC721Contract = Thirdweb.Contracts.DropERC721.ContractDefinition;
 using ERC721AQueryable = Thirdweb.Contracts.ERC721AQueryableUpgradeable.ContractDefinition;
 using SignatureDropContract = Thirdweb.Contracts.SignatureDrop.ContractDefinition;
+using WRTContract = Thirdweb.Contracts.WRT.ContractDefinition;
 
 namespace Thirdweb
 {
@@ -437,6 +438,31 @@ namespace Thirdweb
                 return await TransactionManager.ThirdwebWrite(contractAddress, new TokenERC721Contract.MintToFunction() { To = address, Uri = uri.IpfsHash.CidToIpfsUrl() });
             }
         }
+        // Not created by third web -------------------
+        public async Task<TransactionResult> MintWRTTo(string address)
+        {
+            if (Utils.IsWebGLBuild())
+            {
+                return await Bridge.InvokeRoute<TransactionResult>(getRoute("mintTo"), Utils.ToJsonStringArray(address));
+            }
+            else
+            {
+                return await TransactionManager.ThirdwebWrite(contractAddress, new WRTContract.MintToFunction() { To = address });
+            }
+        }
+
+        public async Task<TransactionResult> CreateAccount(string address, string chainId, string tokenContract, string tokenId, string salt, string initData)
+        {
+            if (Utils.IsWebGLBuild())
+            {
+                return await Bridge.InvokeRoute<TransactionResult>(getRoute("createAccount"), Utils.ToJsonStringArray(address, chainId, tokenContract, tokenId, salt, initData));
+            }
+            else
+            {
+                return await TransactionManager.ThirdwebWrite(contractAddress, new WRTContract.CreateAccountFunction() { Implementation = address, ChainId=BigInteger.Parse(chainId), TokenContract = tokenContract, TokenId = BigInteger.Parse(tokenId), Salt = BigInteger.Parse(salt), InitData = new byte[] { } });
+            }
+        }
+        // -------------------
     }
 
     /// <summary>

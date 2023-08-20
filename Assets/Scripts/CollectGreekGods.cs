@@ -44,7 +44,7 @@ public class CollectGreekGods : MonoBehaviour
         NFTsCollected++;
     }
     private void Update() {
-        if(NFTsCollected == 4 && TimelineComplete==false)
+        if(NFTsCollected == 3 && TimelineComplete==false)
         {
             PlayTimeline();
         }

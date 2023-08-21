@@ -11,6 +11,7 @@ public class AnubisManager : MonoBehaviour
     public GameObject[] ToDisappear;
     public TMP_Text ButtonText;
     public TMP_Text TBA;
+    public static string PlayerTba;
     string nftAddress="0x0486978C6608FBF91Af62815bBFC7f60F3016954";
     string ERC6551RegistryAddress="0x29fD08fcFcA70dF833bA2963C75D04A317A2c118";
     string implementationAddress="0xAd875b392C619fA798CeF148a88db586796E0C35";
@@ -57,13 +58,13 @@ public class AnubisManager : MonoBehaviour
         var sdk = ThirdwebManager.Instance.SDK;
         Contract nftContract = sdk.GetContract(nftAddress, nftAbi);
         var add = await sdk.wallet.GetAddress();
-        TransactionResult tokenId=null;
         try{
-        tokenId = await nftContract.ERC721.MintWRTTo(add);
+        await nftContract.ERC721.MintWRTTo(add);
         }
         catch(System.Exception e){
             Debug.Log(e);
         }
+        var tokenId = await nftContract.Read<int>("totalSupply");
         createTBA(tokenId.ToString());
     }
     public async void createTBA(string tokenId){
@@ -71,14 +72,16 @@ public class AnubisManager : MonoBehaviour
         // create tba
         var sdk = ThirdwebManager.Instance.SDK;
         Contract registryContract = sdk.GetContract(ERC6551RegistryAddress, ERC6551RegistryAbi);
-        TransactionResult tba = null;
+        
         try{
-            tba = await registryContract.ERC721.CreateAccount(implementationAddress, chainId, nftAddress, tokenId, "0", "");
+            await registryContract.ERC721.CreateAccount(implementationAddress, chainId, nftAddress, tokenId, "0", "");
         }
         catch(System.Exception e){
             Debug.Log(e);
         }
+        string tba = await registryContract.Read<string>("account", implementationAddress, chainId, nftAddress, tokenId, "0");
         TBA.text = "Your TBA: "+tba;
+        PlayerTba = tba;
         reappear();
     }
 

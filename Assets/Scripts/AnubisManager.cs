@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -64,7 +65,7 @@ public class AnubisManager : MonoBehaviour
         catch(System.Exception e){
             Debug.Log(e);
         }
-        var tokenId = await nftContract.Read<int>("totalSupply");
+        var tokenId = await nftContract.Read<BigInteger>("totalSupply");
         createTBA(tokenId.ToString());
     }
     public async void createTBA(string tokenId){

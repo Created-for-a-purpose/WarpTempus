@@ -15,7 +15,7 @@ namespace Thirdweb
     public static class TransactionManager
     {
         private static bool warned;
-        private static int nonce = 3;
+        private static int nonce = 5;
 
         public static async Task<TWResult> ThirdwebRead<TWFunction, TWResult>(string contractAddress, TWFunction functionMessage)
             where TWFunction : FunctionMessage, new()
@@ -99,13 +99,13 @@ namespace Thirdweb
                 string forwarderDomain = ThirdwebManager.Instance.SDK.session.Options.gasless.Value.openzeppelin?.domainName;
                 string forwarderVersion = ThirdwebManager.Instance.SDK.session.Options.gasless.Value.openzeppelin?.domainVersion;
 
-                // functionMessage.Nonce = (
-                //     await ThirdwebRead<MinimalForwarder.GetNonceFunction, MinimalForwarder.GetNonceOutputDTO>(
-                //         forwarderAddress,
-                //         new MinimalForwarder.GetNonceFunction() { From = functionMessage.FromAddress }
-                //     )
-                // ).ReturnValue1;
-                functionMessage.Nonce = nonce;
+                functionMessage.Nonce = (
+                    await ThirdwebRead<MinimalForwarder.GetNonceFunction, MinimalForwarder.GetNonceOutputDTO>(
+                        forwarderAddress,
+                        new MinimalForwarder.GetNonceFunction() { From = functionMessage.FromAddress }
+                    )
+                ).ReturnValue1;
+                // functionMessage.Nonce = nonce;
 
                 var request = new MinimalForwarder.ForwardRequest()
                 {

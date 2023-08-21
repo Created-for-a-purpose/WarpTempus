@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using MetaMask.Unity;
 using Thirdweb;
+using Nethereum.Util;
 
 public class GameManagerL1 : MonoBehaviour
 {
@@ -125,16 +126,22 @@ public class GameManagerL1 : MonoBehaviour
         TimelineComplete = true;
         PuzzleScorePanel.SetActive(false);
     }
-    public void mint(float price){
+    public async void mint(float price){
         var sdk = ThirdwebManager.Instance.SDK;
         Contract nftContract = sdk.GetContract(nftAddress, nftAbi);
-        var add = sdk.wallet.GetAddress();
+        var add = await sdk.wallet.GetAddress();
         if(price == 0)
         {
-           
+            try{
+           await nftContract.ERC721.MintWRTTo(add);
+            } catch(System.Exception e){
+                Debug.Log(e);
+            }
         }
         else{
-
+          await nftContract.Write("safeMint", new TransactionRequest{
+            value = UnitConversion.Convert.ToWei(price, UnitConversion.EthUnit.Ether).ToString()
+          }, add);
         }
     }
 }

@@ -19,6 +19,8 @@ public class GameManagerL1 : MonoBehaviour
     public GameObject PuzzleScorePanel;
     public GameObject TimelineTeleporter;
     public GameObject metamaskInfo;
+    public GameObject Chest;
+    public GameObject ChestOpenPanel;
     bool TimelineComplete = false;
     private void Start()
     {
@@ -48,6 +50,10 @@ public class GameManagerL1 : MonoBehaviour
         if(puzzlesolved == 2 && TimelineComplete==false)
         {
             PlayTeleporterTimeline();
+        }
+        if(puzzlesolved == 1)
+        {
+            Chest.SetActive(true);
         }
     }
     public void LockUnlockCursor()

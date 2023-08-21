@@ -97110,6 +97110,11 @@ MonoBehaviour:
       _path: Assets/Scenes/Lev1_Ancient_Egypt.unity
     _DisabledInScene: 0
     _Config: {fileID: 11400000, guid: 780177512d8fbec48a4f6b9bfa1f0e3a, type: 2}
+  - _Scene:
+      _sceneAsset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
+      _path: Assets/Scenes/Colonial_graveyard.unity
+    _DisabledInScene: 1
+    _Config: {fileID: 0}
 --- !u!114 &2121958195
 MonoBehaviour:
   m_ObjectHideFlags: 0

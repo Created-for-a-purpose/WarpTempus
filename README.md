@@ -28,7 +28,8 @@ There is a map to guide with certain symbols to guide you. Reach the symbols and
 
 On hitting these question marks, you will be confronted with some puzzles. Answer them correctly to claim rewards (TGM tokens). TGM are the native ERC20 tokens of Warp Tempus. 
 
-Claiming tokens requires you to pay a gas fee, but relax! you have got to pay nothing (zero gas) to claim your rewards. Just sign the transaction and TGM tokens will automatically be credited to your connected account. These gasless transactions are implemented using the Thirdweb Unity SDK and OpenZeppelin Defender.
+Claiming tokens requires you to pay a gas fee, but relax! you have got to pay nothing (zero gas) to claim your rewards. Just sign the transaction and TGM tokens will automatically be credited to your connected account. These gasless transactions are implemented using the Thirdweb Unity SDK and OpenZeppelin Defender. We created a relayer on OpenZeppelin defender to sponsor gas fee and an autotask connected to it. For the forwarder, we have deployed the forwarder on linea testnet.
+Forwarder.sol smart contract can be found in the truffle directory of this repository. We have specified the forwarder and autotask webhook in ThirdwebManager GameObject.
 
 ![image](https://github.com/Created-for-a-purpose/WarpTempus/assets/97793907/92ab3f7e-8b8c-4a4e-aaf9-67cd5e6469a2)
 
@@ -49,6 +50,7 @@ After solving even more puzzles, you will unlock a new level. A portal will be d
 ### Next world (About ERC-6551 NFTs)
 On reaching the new level, you will be given a task to search for some artifacts. These artifacts will be minted to you as NFTs because you found them, however, managing so many onchain in-game assets can be quite a hassle!
 Don't worry! Anubis is here. After minting the Anubis NFT, a Token Bound Account (TBA) will created for it. This will make it an ERC-6551 NFT.
+The TBA is created by the ERC6551Registry.sol smart contract.
 
 ![image](https://github.com/Created-for-a-purpose/WarpTempus/assets/97793907/567cc5c6-ab13-45f0-b6c9-6fd212e06731)
 
@@ -74,7 +76,10 @@ After successfully founding some artifacts, a new feature will be unlocked!
 6. ERC-6551 Account (TBA used above): https://explorer.goerli.linea.build/address/0x79783D2a81f0A69019081F0D7C09395131Ac6ec3/token-transfers#address-tabs
 
 
-
+## To setup locally
+1. Clone this repo
+2. Use Unity Hub to open the project (use editor 2021.3.23f1)
+3. That's it !
 
 
 
